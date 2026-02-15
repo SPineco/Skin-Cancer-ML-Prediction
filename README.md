@@ -1,7 +1,11 @@
 # Skin-Cancer-ML-Prediction
 
 ## Summary
-The purpose for this project is to create a language model that can predict skin cancer within patients. The dataset analyzed is concerned with skin cancer and the factors that influence it, such as chronic illness, exercise, and age. The target variable of the dataset is Skin Cancer and is heavily skewed with 9.32% of paticipants having cancer. Different techniques, such as class weights and feature engineering, were utilized to account for this skewness. Additionally, the metric "recall" was chosen to be Various models, such as decision trees, random forest, and logistic regression, were trained and tested to differing results. The best model was a decision tree found through random search that scored a recall score of 86.02%. This means that the model reduces the costs of missed diagnostic, thus increasing profit.
+This project develops a supervised classification model designed to predict skin cancer risk using demographic and health-related behavioral data. The dataset contains 319,795 survey responses and includes medical history, lifestyle habits, and demographic characteristics. The target variable, Skin Cancer, is highly imbalanced, with only 9.32% of participants reporting a diagnosis.
+
+To address class imbalance, oversampling techniques and class-weight adjustments were implemented. Model evaluation prioritized recall to minimize missed cancer diagnoses, reflecting the priorities of real-world screening applications.
+
+Multiple machine learning models were evaluated, including logistic regression, decision trees, random forests, neural networks, and XGBoost. The best-performing model was a grid-search-optimized decision tree, achieving a recall score of 86.02%. This model successfully identifies the majority of high-risk individuals while acknowledging increased false-positive rates, making it most suitable as an early screening support tool rather than a diagnostic replacement.
 
 ## Dataset Information
 The dataset contains the following variables:
@@ -49,7 +53,7 @@ For later models, data engineering will be utilized. The main difference between
 
 ## Modeling
 
-Several different techniques were utilized to model the data. Grid search, random grid search, and a custom scorer for cross-validation metrics are some examples. Several models were created including a random forest, several decision trees with differing metrics, and an XgBoost model. The results of these models can be seen in the following table:
+Several different techniques were utilized to model the data. Grid search, random grid search, and a custom scorer for cross-validation metrics are some examples. Several models were created including a random forest, several decision trees with differing metrics, and an XgBoost model. Model comparison results are summarized below:
 
 | Model                            | Accuracy | Recall |
 |----------------------------------|----------|--------|
@@ -58,6 +62,8 @@ Several different techniques were utilized to model the data. Grid search, rando
 | Neural Network                   | 90.58%   | 0.00%  |
 | Decision Tree with custom scorer | 61.29%   | 86.02% |
 | XgBoost                          | 65.40%   | 82.49% |
+
+The neural network achieved high accuracy but completely failed to detect positive cancer cases. Due to the dataset being skewed against the positive cases, the model just predicted that no one had cancer. This result highlights how accuracy alone can be misleading in imbalanced classification problems.
 
 As you can see via the table, the highest recal generated was by the Grid Search Decision Tree and the Decision Tree with the custom scorer. The model recommeded for deployment is the Grid Search Decision Tree, as it has both high recall and is cross validated. The following confusion matrix was created to showcase the number of cases the model correctly and incorrectly predicts:
 
