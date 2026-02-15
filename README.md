@@ -65,7 +65,7 @@ As you can see via the table, the highest recal generated was by the Grid Search
 
 Out of 63,959 cases, the model minimizes the number of missed real diagnosis at the cost of have a high number of false positive. As such, it is recommended that the model be utilized as an early screening tool of cancer, rather than for actual diagnosis. With such a model, skin cancer can be detected earlier and treatment can begin much faster, saving many lives. 
 
-For more information in regards to the code, please access the Skin Cancer Machine Learning.ipynb file. 
+For more information in regards to the code, please access the Skin Cancer Machine Learning.ipynb file: https://github.com/SPineco/Skin-Cancer-ML-Prediction/blob/main/Skin%20Cancer%20Machine%20Learning.ipynb. 
 
 
 
